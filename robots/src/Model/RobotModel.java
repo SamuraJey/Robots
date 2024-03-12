@@ -4,7 +4,7 @@ import java.awt.geom.Point2D;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class RobotModel {
+public class RobotModel implements Entity {
 
     private final Timer m_timer = initTimer();
 
@@ -20,7 +20,7 @@ public class RobotModel {
             @Override
             public void run()
             {
-                onModelUpdateEvent();
+                update();
             }
         }, 0, 10);
     }
@@ -48,7 +48,9 @@ public class RobotModel {
 
     private static final double maxVelocity = 0.1;
     private static final double maxAngularVelocity = 0.001;
-    protected void onModelUpdateEvent()
+
+    @Override
+    public void update()
     {
         double distance = distance(m_targetPosition.x, m_targetPosition.y,
                 m_robotPosition.x, m_robotPosition.y);
