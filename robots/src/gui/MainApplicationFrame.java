@@ -13,7 +13,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import View.GameWindow;
+import view.GameWindow;
 import log.Logger;
 
 public class MainApplicationFrame extends JFrame {

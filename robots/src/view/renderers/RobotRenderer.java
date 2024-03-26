@@ -1,8 +1,8 @@
-package View.renderers;
+package view.renderers;
 
-import Model.Entity;
-import Model.RobotModel;
-import View.GraphicsUtils;
+import model.Entity;
+import model.RobotModel;
+import view.GraphicsUtils;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;

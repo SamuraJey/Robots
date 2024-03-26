@@ -1,6 +1,6 @@
-package View.renderers;
+package view.renderers;
 
-import Model.Entity;
+import model.Entity;
 
 import java.awt.*;
 

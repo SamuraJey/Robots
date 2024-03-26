@@ -1,6 +1,6 @@
-package ViewModel;
+package viewmodel;
 
-import Model.Entity;
+import model.Entity;
 
 import java.util.ArrayList;
 import java.util.List;

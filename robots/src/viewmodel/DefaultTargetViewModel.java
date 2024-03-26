@@ -1,6 +1,6 @@
-package ViewModel;
+package viewmodel;
 
-import Model.TargetModel;
+import model.TargetModel;
 
 import java.awt.geom.Point2D;
 

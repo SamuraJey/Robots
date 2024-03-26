@@ -1,13 +1,13 @@
-package View;
+package view;
 
-import Model.Entity;
-import Model.RobotModel;
-import Model.TargetModel;
-import View.renderers.AbstractRenderer;
-import View.renderers.RobotRenderer;
-import View.renderers.TargetRenderer;
-import ViewModel.EntitiesGetter;
-import ViewModel.TargetViewModel;
+import model.Entity;
+import model.RobotModel;
+import model.TargetModel;
+import view.renderers.AbstractRenderer;
+import view.renderers.RobotRenderer;
+import view.renderers.TargetRenderer;
+import viewmodel.EntitiesGetter;
+import viewmodel.TargetViewModel;
 
 import javax.swing.*;
 import java.awt.*;
