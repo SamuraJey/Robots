@@ -3,8 +3,8 @@ package View;
 import Model.RobotModel;
 import Model.TargetModel;
 import ViewModel.DefaultEntitiesGetter;
-import ViewModel.DefaultRobotViewModel;
-import ViewModel.RobotViewModel;
+import ViewModel.DefaultTargetViewModel;
+import ViewModel.TargetViewModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,12 +17,12 @@ public class GameWindow extends JInternalFrame {
 
         TargetModel tm = new TargetModel();
         RobotModel rm = new RobotModel(tm);
-        RobotViewModel robotViewModel = new DefaultRobotViewModel(tm);
+        TargetViewModel targetViewModel = new DefaultTargetViewModel(tm);
         DefaultEntitiesGetter entitiesGetter = new DefaultEntitiesGetter();
         entitiesGetter.register(tm);
         entitiesGetter.register(rm);
 
-        m_visualizer = new GameVisualizer(entitiesGetter, robotViewModel);
+        m_visualizer = new GameVisualizer(entitiesGetter, targetViewModel);
 
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(m_visualizer, BorderLayout.CENTER);

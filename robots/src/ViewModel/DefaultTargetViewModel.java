@@ -4,11 +4,11 @@ import Model.TargetModel;
 
 import java.awt.geom.Point2D;
 
-public class DefaultRobotViewModel implements RobotViewModel {
+public class DefaultTargetViewModel implements TargetViewModel {
 
     private final TargetModel m_targetModel;
 
-    public DefaultRobotViewModel(TargetModel tm) {
+    public DefaultTargetViewModel(TargetModel tm) {
         m_targetModel = tm;
     }
 

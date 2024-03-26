@@ -7,7 +7,7 @@ import View.renderers.AbstractRenderer;
 import View.renderers.RobotRenderer;
 import View.renderers.TargetRenderer;
 import ViewModel.EntitiesGetter;
-import ViewModel.RobotViewModel;
+import ViewModel.TargetViewModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +21,7 @@ import java.util.TimerTask;
 public class GameVisualizer extends JPanel {
     private final Timer m_timer = initTimer();
     private final EntitiesGetter m_entitiesGetter;
-    private final RobotViewModel m_robotViewModel;
+    private final TargetViewModel m_targetViewModel;
     private final int m_period = 10;
     private final Map<Class<? extends Entity>, AbstractRenderer> rendererMap = Map.of(
             RobotModel.class, new RobotRenderer(),
@@ -33,8 +33,8 @@ public class GameVisualizer extends JPanel {
         return timer;
     }
 
-    public GameVisualizer(EntitiesGetter entitiesGetter, RobotViewModel robotViewModel) {
-        m_robotViewModel = robotViewModel;
+    public GameVisualizer(EntitiesGetter entitiesGetter, TargetViewModel targetViewModel) {
+        m_targetViewModel = targetViewModel;
         m_entitiesGetter = entitiesGetter;
         m_timer.schedule(new TimerTask() {
             @Override
@@ -57,7 +57,7 @@ public class GameVisualizer extends JPanel {
     }
 
     protected void setTargetPosition(Point p) {
-        m_robotViewModel.setTargetPosition(new Point2D.Double(p.x, p.y));
+        m_targetViewModel.setTargetPosition(new Point2D.Double(p.x, p.y));
     }
 
     @Override
