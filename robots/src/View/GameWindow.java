@@ -1,23 +1,29 @@
 package View;
 
 import Model.RobotModel;
+import Model.TargetModel;
+import ViewModel.DefaultEntitiesGetter;
 import ViewModel.DefaultRobotViewModel;
 import ViewModel.RobotViewModel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class GameWindow extends JInternalFrame
-{
+public class GameWindow extends JInternalFrame {
     private final GameVisualizer m_visualizer;
-    private final RobotViewModel m_robotViewModel;
-    private final RobotModel m_robotModel;
-    public GameWindow() 
-    {
+
+    public GameWindow() {
         super("Игровое поле", true, true, true, true);
-        m_robotModel = new RobotModel();
-        m_robotViewModel = new DefaultRobotViewModel(m_robotModel);
-        m_visualizer = new GameVisualizer(m_robotViewModel);
+
+        TargetModel tm = new TargetModel();
+        RobotModel rm = new RobotModel(tm);
+        RobotViewModel robotViewModel = new DefaultRobotViewModel(tm);
+        DefaultEntitiesGetter entitiesGetter = new DefaultEntitiesGetter();
+        entitiesGetter.register(tm);
+        entitiesGetter.register(rm);
+
+        m_visualizer = new GameVisualizer(entitiesGetter, robotViewModel);
+
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(m_visualizer, BorderLayout.CENTER);
         getContentPane().add(panel);

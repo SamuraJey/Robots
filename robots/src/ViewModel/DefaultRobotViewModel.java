@@ -1,32 +1,19 @@
 package ViewModel;
 
-import Model.RobotModel;
+import Model.TargetModel;
 
 import java.awt.geom.Point2D;
 
-public class DefaultRobotViewModel implements RobotViewModel{
+public class DefaultRobotViewModel implements RobotViewModel {
 
-    private final RobotModel m_robotModel;
-    public DefaultRobotViewModel(RobotModel rm){
-        m_robotModel = rm;
-    }
-    @Override
-    public Point2D.Double getRobotPosition() {
-        return m_robotModel.getRobotPosition();
-    }
+    private final TargetModel m_targetModel;
 
-    @Override
-    public double getRobotDirection() {
-        return m_robotModel.getRobotDirection();
-    }
-
-    @Override
-    public Point2D.Double getTargetPosition() {
-        return m_robotModel.getTargetPosition();
+    public DefaultRobotViewModel(TargetModel tm) {
+        m_targetModel = tm;
     }
 
     @Override
     public void setTargetPosition(Point2D.Double targetPosition) {
-        m_robotModel.setTargetPosition(targetPosition);
+        m_targetModel.setPosition(targetPosition);
     }
 }
