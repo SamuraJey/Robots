@@ -1,7 +1,7 @@
 package view.renderers;
 
-import model.Entity;
-import model.TargetModel;
+import model.entities.Entity;
+import model.entities.TargetEntity;
 import view.GraphicsUtils;
 
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.awt.geom.AffineTransform;
 public class TargetRenderer extends AbstractRenderer {
     @Override
     public void render(Graphics2D g, Entity entity) {
-        TargetModel target = (TargetModel) entity;
+        TargetEntity target = (TargetEntity) entity;
         AffineTransform t = AffineTransform.getRotateInstance(0, 0, 0);
         g.setTransform(t);
         g.setColor(Color.GREEN);

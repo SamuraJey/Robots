@@ -1,12 +1,14 @@
-package model;
+package model.entities;
+
+import model.MathUtils;
 
 import java.awt.geom.Point2D;
 
-public class RobotModel extends Entity {
+public class RobotEntity extends Entity {
 
-    private final TargetModel m_target;
+    private final TargetEntity m_target;
 
-    public RobotModel(TargetModel target) {
+    public RobotEntity(TargetEntity target) {
         m_target = target;
     }
 

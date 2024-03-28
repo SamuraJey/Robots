@@ -1,4 +1,7 @@
-package gui;
+import model.Model;
+import view.GameVisualizer;
+import view.MainApplicationFrame;
+import viewmodel.ViewModel;
 
 import java.awt.Frame;
 import javax.swing.SwingUtilities;
@@ -13,7 +16,12 @@ public class Main
         e.printStackTrace();
       }
       SwingUtilities.invokeLater(() -> {
-        MainApplicationFrame frame = new MainApplicationFrame();
+
+        GameVisualizer gameVisualizer = new GameVisualizer();
+        Model model = new Model();
+        ViewModel viewModel = new ViewModel(model, gameVisualizer);
+
+        MainApplicationFrame frame = new MainApplicationFrame(gameVisualizer);
         frame.pack();
         frame.setVisible(true);
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);

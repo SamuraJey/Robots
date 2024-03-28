@@ -1,8 +1,8 @@
-package model;
+package model.entities;
 
 import java.awt.geom.Point2D;
 
-public class TargetModel extends Entity {
+public class TargetEntity extends Entity {
 
     private volatile Point2D.Double position = new Point2D.Double(200, 200);
 

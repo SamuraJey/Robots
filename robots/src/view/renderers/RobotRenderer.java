@@ -1,7 +1,7 @@
 package view.renderers;
 
-import model.Entity;
-import model.RobotModel;
+import model.entities.Entity;
+import model.entities.RobotEntity;
 import view.GraphicsUtils;
 
 import java.awt.*;
@@ -11,7 +11,7 @@ public class RobotRenderer extends AbstractRenderer {
 
     @Override
     public void render(Graphics2D g, Entity entity) {
-        RobotModel robot = (RobotModel) entity;
+        RobotEntity robot = (RobotEntity) entity;
         int robotCenterX = GraphicsUtils.round(robot.getRobotPosition().x);
         int robotCenterY = GraphicsUtils.round(robot.getRobotPosition().y);
         AffineTransform t = AffineTransform.getRotateInstance(robot.getRobotDirection(), robotCenterX, robotCenterY);
