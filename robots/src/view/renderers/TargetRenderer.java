@@ -1,7 +1,6 @@
 package view.renderers;
 
 import model.entities.Entity;
-import model.entities.TargetEntity;
 import view.GraphicsUtils;
 
 import java.awt.*;

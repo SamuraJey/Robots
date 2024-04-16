@@ -1,8 +1,6 @@
 package view;
 
 import model.entities.Entity;
-import model.entities.RobotEntity;
-import model.entities.TargetEntity;
 import view.renderers.AbstractRenderer;
 import view.renderers.RobotRenderer;
 import view.renderers.TargetRenderer;
