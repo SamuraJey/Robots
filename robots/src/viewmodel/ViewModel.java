@@ -1,9 +1,9 @@
 package viewmodel;
 
 import model.Model;
-import model.entities.TargetEntity;
 import view.GameVisualizer;
 
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
@@ -19,7 +19,6 @@ public class ViewModel {
     private final int modelUpdatePeriod = 10;
 
     public ViewModel(Model model, GameVisualizer gameVisualizer) {
-        TargetEntity targetEntity = (TargetEntity) model.entitiesRegistry.getEntity(TargetEntity.class);
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -34,15 +33,5 @@ public class ViewModel {
                 model.update(modelUpdatePeriod);
             }
         }, 0, modelUpdatePeriod);
-
-
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                targetEntity.setPosition(
-                        new Point2D.Double(e.getPoint().x, e.getPoint().y)
-                );
-            }
-        });
     }
 }

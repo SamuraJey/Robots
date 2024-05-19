@@ -2,8 +2,6 @@ package view.renderers;
 
 import model.entities.Bacteria;
 import model.entities.Entity;
-import model.entities.RobotEntity;
-import model.entities.TargetEntity;
 import view.GraphicsUtils;
 
 import java.awt.*;

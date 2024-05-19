@@ -1,6 +1,7 @@
 package model;
 
 import model.entities.Entity;
+import model.entities.Grid;
 
 import java.util.List;
 

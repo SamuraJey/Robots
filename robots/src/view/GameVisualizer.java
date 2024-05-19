@@ -12,8 +12,6 @@ import java.util.Map;
 public class GameVisualizer extends JPanel {
 
     private final Map<Class<? extends Entity>, AbstractRenderer> rendererMap = Map.of(
-            RobotEntity.class, new RobotRenderer(),
-            TargetEntity.class, new TargetRenderer(),
             Bacteria.class, new BacteriaRenderer(),
             Grid.class, new GridRenderer(),
             Food.class, new FoodRenderer()

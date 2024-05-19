@@ -19,13 +19,9 @@ public class Model {
         init();
     }
     private void init(){
-        TargetEntity targetEntity = new TargetEntity();
-        RobotEntity robotEntity = new RobotEntity(targetEntity);
         Grid grid = new Grid(cellCountWidth, cellCountHeight, widthOfScreen, heightOfScreen);
         Food food = new Food(grid.getCellWidth(),grid.getCellHeight(),cellCountWidth,cellCountHeight);
         Bacteria bacteria = new Bacteria(food,grid.getCellWidth(),grid.getCellHeight(),cellCountWidth,cellCountHeight);
-        entitiesRegistry.register(targetEntity);
-        entitiesRegistry.register(robotEntity);
         entitiesRegistry.register(bacteria);
         entitiesRegistry.register(grid);
         entitiesRegistry.register(food);
