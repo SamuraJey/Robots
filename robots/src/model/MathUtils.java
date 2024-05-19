@@ -1,5 +1,8 @@
 package model;
 
+import java.awt.geom.Point2D;
+import java.util.Random;
+
 public class MathUtils {
     public static double distance(double x1, double y1, double x2, double y2) {
         double diffX = x1 - x2;
@@ -31,4 +34,11 @@ public class MathUtils {
         }
         return angle;
     }
+
+    public static int getRandomNumber(){
+        Random rn = new Random();
+        int randomNum = rn.nextInt(4);
+        return randomNum;
+    }
+
 }

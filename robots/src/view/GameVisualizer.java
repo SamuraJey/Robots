@@ -1,11 +1,7 @@
 package view;
 
-import model.entities.Entity;
-import model.entities.RobotEntity;
-import model.entities.TargetEntity;
-import view.renderers.AbstractRenderer;
-import view.renderers.RobotRenderer;
-import view.renderers.TargetRenderer;
+import model.entities.*;
+import view.renderers.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +13,10 @@ public class GameVisualizer extends JPanel {
 
     private final Map<Class<? extends Entity>, AbstractRenderer> rendererMap = Map.of(
             RobotEntity.class, new RobotRenderer(),
-            TargetEntity.class, new TargetRenderer()
+            TargetEntity.class, new TargetRenderer(),
+            Bacteria.class, new BacteriaRenderer(),
+            Grid.class, new GridRenderer(),
+            Food.class, new FoodRenderer()
     );
     public List<Entity> entitiesToRender = Collections.emptyList();
 
