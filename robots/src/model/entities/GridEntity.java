@@ -1,6 +1,6 @@
 package model.entities;
 
-public final class Grid extends Entity {
+public final class GridEntity extends Entity {
     private final int cellCountWidth;
     private final int cellCountHeight;
     private final int widthOfScreen;
@@ -8,7 +8,7 @@ public final class Grid extends Entity {
     private final int cellWidth;
     private final int cellHeight;
 
-    public Grid(int cellCountWidth, int cellCountHeight, int widthOfScreen, int heightOfScreen) {
+    public GridEntity(int cellCountWidth, int cellCountHeight, int widthOfScreen, int heightOfScreen) {
         this.cellCountWidth = cellCountWidth;
         this.cellCountHeight = cellCountHeight;
         this.widthOfScreen = widthOfScreen;

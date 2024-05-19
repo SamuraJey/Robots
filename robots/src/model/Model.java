@@ -19,9 +19,9 @@ public class Model {
         init();
     }
     private void init(){
-        Grid grid = new Grid(cellCountWidth, cellCountHeight, widthOfScreen, heightOfScreen);
-        Food food = new Food(grid.getCellWidth(),grid.getCellHeight(),cellCountWidth,cellCountHeight);
-        Bacteria bacteria = new Bacteria(food,grid.getCellWidth(),grid.getCellHeight(),cellCountWidth,cellCountHeight);
+        GridEntity grid = new GridEntity(cellCountWidth, cellCountHeight, widthOfScreen, heightOfScreen);
+        FoodEntity food = new FoodEntity(grid.getCellWidth(),grid.getCellHeight(),cellCountWidth,cellCountHeight);
+        BacteriaEntity bacteria = new BacteriaEntity(food,grid.getCellWidth(),grid.getCellHeight(),cellCountWidth,cellCountHeight);
         entitiesRegistry.register(bacteria);
         entitiesRegistry.register(grid);
         entitiesRegistry.register(food);

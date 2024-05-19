@@ -1,6 +1,6 @@
 package view.renderers;
 
-import model.entities.Food;
+import model.entities.FoodEntity;
 import model.entities.Entity;
 import view.GraphicsUtils;
 
@@ -9,7 +9,7 @@ import java.awt.*;
 public class FoodRenderer extends AbstractRenderer{
     @Override
     public void render(Graphics2D g, Entity entity) {
-        Food food = (Food) entity;
+        FoodEntity food = (FoodEntity) entity;
         int foodX = GraphicsUtils.round(food.getFoodPosition().x);
         int foodY = GraphicsUtils.round(food.getFoodPosition().y);
         int foodWeight = food.getFoodWeight();

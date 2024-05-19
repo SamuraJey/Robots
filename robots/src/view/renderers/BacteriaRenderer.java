@@ -1,16 +1,15 @@
 package view.renderers;
 
-import model.entities.Bacteria;
+import model.entities.BacteriaEntity;
 import model.entities.Entity;
 import view.GraphicsUtils;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
 
 public class BacteriaRenderer extends AbstractRenderer {
     @Override
     public void render(Graphics2D g, Entity entity) {
-        Bacteria bacteria = (Bacteria) entity;
+        BacteriaEntity bacteria = (BacteriaEntity) entity;
         int bacteriaX = GraphicsUtils.round(bacteria.getBacteriaPosition().x);
         int bacteriaY = GraphicsUtils.round(bacteria.getBacteriaPosition().y);
         int bacteriaWeight = bacteria.getBacteriaWeight();

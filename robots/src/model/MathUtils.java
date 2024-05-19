@@ -35,9 +35,9 @@ public class MathUtils {
         return angle;
     }
 
-    public static int getRandomNumber(){
+    public static int getRandomNumber(int range){
         Random rn = new Random();
-        int randomNum = rn.nextInt(4);
+        int randomNum = rn.nextInt(range);
         return randomNum;
     }
 

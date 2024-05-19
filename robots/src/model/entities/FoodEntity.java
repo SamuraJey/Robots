@@ -1,17 +1,17 @@
 package model.entities;
 
-import java.awt.*;
+import model.MathUtils;
+
 import java.awt.geom.Point2D;
-import java.util.List;
 import java.util.Random;
 
-public class Food extends Entity{
+public class FoodEntity extends Entity{
     private final Point2D.Double foodPosition;
     private final int foodHeight;
     private final int foodWeight;
     private final int countOfWidth;
     private final int countOfHeight;
-    public Food(int weight, int height, int countOfWidth, int countOfHeight) {
+    public FoodEntity(int weight, int height, int countOfWidth, int countOfHeight) {
         foodWeight = weight;
         foodHeight = height;
         this.countOfWidth = countOfWidth;
@@ -28,8 +28,8 @@ public class Food extends Entity{
 
     private Point2D.Double getPosition(){
         Random rn = new Random();
-        int randomWidth = rn.nextInt(countOfWidth);
-        int randomHeight = rn.nextInt(countOfHeight);
+        int randomWidth = MathUtils.getRandomNumber(countOfWidth);
+        int randomHeight = MathUtils.getRandomNumber(countOfHeight);
         double foodX = foodHeight * randomHeight;
         double foodY = foodWeight * randomWidth;
         return new Point2D.Double(foodX,foodY);

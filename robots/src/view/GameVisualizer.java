@@ -12,9 +12,9 @@ import java.util.Map;
 public class GameVisualizer extends JPanel {
 
     private final Map<Class<? extends Entity>, AbstractRenderer> rendererMap = Map.of(
-            Bacteria.class, new BacteriaRenderer(),
-            Grid.class, new GridRenderer(),
-            Food.class, new FoodRenderer()
+            BacteriaEntity.class, new BacteriaRenderer(),
+            GridEntity.class, new GridRenderer(),
+            FoodEntity.class, new FoodRenderer()
     );
     public List<Entity> entitiesToRender = Collections.emptyList();
 

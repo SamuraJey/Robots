@@ -30,7 +30,7 @@ public class MainApplicationFrame extends JFrame {
         addWindow(logWindow);
 
         GameWindow gameWindow = new GameWindow(gameVisualizer);
-        gameWindow.setSize(400, 400);
+        gameWindow.setSize(450, 450);
         addWindow(gameWindow);
 
         setJMenuBar(createMenuBar());

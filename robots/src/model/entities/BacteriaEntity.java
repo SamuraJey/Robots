@@ -2,14 +2,12 @@ package model.entities;
 
 import model.MathUtils;
 
-import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Bacteria extends Entity {
+public class BacteriaEntity extends Entity {
 
-    private final Food food;
+    private final FoodEntity food;
     private Point2D.Double bacteriaPosition = new Point2D.Double(0, 0);
     private final int bacteriaHeight;
     private final int bacteriaWeight;
@@ -18,7 +16,7 @@ public class Bacteria extends Entity {
 
     private final List<String> listOfPosition = List.of("up","down","left","right");
 
-    public Bacteria(Food food,int weight, int height, int countOfWidth, int countOfHeight) {
+    public BacteriaEntity(FoodEntity food, int weight, int height, int countOfWidth, int countOfHeight) {
         bacteriaHeight = height;
         bacteriaWeight = weight;
         this.countOfWidth = countOfWidth;
@@ -37,7 +35,7 @@ public class Bacteria extends Entity {
         if (bacteriaPosition.x == food.getFoodPosition().x && bacteriaPosition.y == food.getFoodPosition().y){
             return;
         }
-        String randomDirection = listOfPosition.get(MathUtils.getRandomNumber());
+        String randomDirection = listOfPosition.get(MathUtils.getRandomNumber(4));
         bacteriaPosition = getNewBacteriaPosition(randomDirection);
     }
 
