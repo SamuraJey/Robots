@@ -3,7 +3,7 @@ package model;
 import model.entities.*;
 
 public class Model {
-    public final EntitiesRegistry entitiesRegistry;
+    public final DefaultEntitiesRegistry entitiesRegistry;
     private final int widthOfScreen;
     private final int heightOfScreen;
     private final int cellCountWidth;
@@ -21,7 +21,7 @@ public class Model {
     private void init(){
         GridEntity grid = new GridEntity(cellCountWidth, cellCountHeight, widthOfScreen, heightOfScreen);
         FoodEntity food = new FoodEntity(grid.getCellWidth(),grid.getCellHeight(),cellCountWidth,cellCountHeight);
-        BacteriaEntity bacteria = new BacteriaEntity(food,grid.getCellWidth(),grid.getCellHeight(),cellCountWidth,cellCountHeight);
+        BacteriaEntity bacteria = new BacteriaEntity(entitiesRegistry,food,grid.getCellWidth(),grid.getCellHeight(),cellCountWidth,cellCountHeight);
         entitiesRegistry.register(bacteria);
         entitiesRegistry.register(grid);
         entitiesRegistry.register(food);
@@ -31,5 +31,6 @@ public class Model {
         for (Entity entity : entitiesRegistry.getEntities()){
             entity.update(period);
         }
+        entitiesRegistry.delete();
     }
 }

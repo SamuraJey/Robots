@@ -27,7 +27,6 @@ public class FoodEntity extends Entity{
     public int getFoodWeight(){ return  foodWeight; }
 
     private Point2D.Double getPosition(){
-        Random rn = new Random();
         int randomWidth = MathUtils.getRandomNumber(countOfWidth);
         int randomHeight = MathUtils.getRandomNumber(countOfHeight);
         double foodX = foodHeight * randomHeight;

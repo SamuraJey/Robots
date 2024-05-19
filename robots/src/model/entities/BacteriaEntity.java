@@ -1,5 +1,7 @@
 package model.entities;
 
+import model.DefaultEntitiesRegistry;
+import model.EntitiesRegistry;
 import model.MathUtils;
 
 import java.awt.geom.Point2D;
@@ -13,15 +15,18 @@ public class BacteriaEntity extends Entity {
     private final int bacteriaWeight;
     private final int countOfWidth;
     private final int countOfHeight;
+    private final DefaultEntitiesRegistry entitiesRegistry;
+    private boolean foodIsDel = false;
 
     private final List<String> listOfPosition = List.of("up","down","left","right");
 
-    public BacteriaEntity(FoodEntity food, int weight, int height, int countOfWidth, int countOfHeight) {
+    public BacteriaEntity(DefaultEntitiesRegistry entitiesRegistry, FoodEntity food, int weight, int height, int countOfWidth, int countOfHeight) {
         bacteriaHeight = height;
         bacteriaWeight = weight;
         this.countOfWidth = countOfWidth;
         this.countOfHeight = countOfHeight;
         this.food = food;
+        this.entitiesRegistry = entitiesRegistry;
     }
 
     public Point2D.Double getBacteriaPosition() {
@@ -32,7 +37,13 @@ public class BacteriaEntity extends Entity {
 
     @Override
     public void update(int period) {
+        if (foodIsDel){
+            return;
+        }
+
         if (bacteriaPosition.x == food.getFoodPosition().x && bacteriaPosition.y == food.getFoodPosition().y){
+            entitiesRegistry.addEntityToDelete(food);
+            foodIsDel = true;
             return;
         }
         String randomDirection = listOfPosition.get(MathUtils.getRandomNumber(4));

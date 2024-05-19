@@ -22,7 +22,7 @@ public class ViewModel {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                gameVisualizer.entitiesToRender = model.entitiesRegistry.getEntities();
+                gameVisualizer.setEntitiesToRender(model.entitiesRegistry.getEntities());
                 gameVisualizer.onRedrawEvent();
             }
         }, 0, redrawPeriod);

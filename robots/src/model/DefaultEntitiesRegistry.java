@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultEntitiesRegistry implements EntitiesRegistry {
-    private final List<Entity> registeredEntities = new ArrayList<>();
-
+    private List<Entity> registeredEntities = new ArrayList<>();
+    private List<Entity> deleteEnity = new ArrayList<>();
     public void register(Entity entity) {
         registeredEntities.add(entity);
     }
@@ -23,5 +23,15 @@ public class DefaultEntitiesRegistry implements EntitiesRegistry {
     @Override
     public List<Entity> getEntities() {
         return registeredEntities;
+    }
+
+    public void delete() {
+        for (Entity entity: deleteEnity){
+            registeredEntities.remove(entity);
+        }
+    }
+
+    public void addEntityToDelete(Entity entity){
+        deleteEnity.add(entity);
     }
 }
