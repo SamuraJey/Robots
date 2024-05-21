@@ -12,12 +12,12 @@ public class FoodRenderer extends AbstractRenderer{
         FoodEntity food = (FoodEntity) entity;
         int foodX = GraphicsUtils.round(food.getFoodPosition().x);
         int foodY = GraphicsUtils.round(food.getFoodPosition().y);
-        int foodWeight = food.getFoodWeight();
+        int foodWidth = food.getFoodWidth();
         int foodHeight = food.getFoodHeight();
         Color color = Color.GREEN;
         //AffineTransform t = AffineTransform.getRotateInstance(bacteria.getBacteriaDirection(), robotCenterX, robotCenterY);
         //g.setTransform(t);
         g.setColor(color);
-        GraphicsUtils.fillRect(g, foodX, foodY, foodHeight, foodWeight);
+        GraphicsUtils.fillRect(g, foodX, foodY, foodHeight, foodWidth);
     }
 }

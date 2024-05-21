@@ -12,7 +12,7 @@ public class BacteriaEntity extends Entity {
     private final FoodEntity food;
     private Point2D.Double bacteriaPosition = new Point2D.Double(0, 0);
     private final int bacteriaHeight;
-    private final int bacteriaWeight;
+    private final int bacteriaWidth;
     private final int countOfWidth;
     private final int countOfHeight;
     private final DefaultEntitiesRegistry entitiesRegistry;
@@ -20,9 +20,9 @@ public class BacteriaEntity extends Entity {
 
     private final List<String> listOfPosition = List.of("up","down","left","right");
 
-    public BacteriaEntity(DefaultEntitiesRegistry entitiesRegistry, FoodEntity food, int weight, int height, int countOfWidth, int countOfHeight) {
+    public BacteriaEntity(DefaultEntitiesRegistry entitiesRegistry, FoodEntity food, int width, int height, int countOfWidth, int countOfHeight) {
         bacteriaHeight = height;
-        bacteriaWeight = weight;
+        bacteriaWidth = width;
         this.countOfWidth = countOfWidth;
         this.countOfHeight = countOfHeight;
         this.food = food;
@@ -33,7 +33,7 @@ public class BacteriaEntity extends Entity {
         return bacteriaPosition;
     }
     public int getBacteriaHeight(){ return  bacteriaHeight; }
-    public int getBacteriaWeight(){ return  bacteriaWeight; }
+    public int getBacteriaWidth(){ return  bacteriaWidth; }
 
     @Override
     public void update(int period) {
@@ -56,7 +56,7 @@ public class BacteriaEntity extends Entity {
         int oldX = (int) bacteriaPosition.x;
         int oldY = (int) bacteriaPosition.y;
         int maxX = bacteriaHeight * (countOfHeight - 1);
-        int maxY = bacteriaWeight * (countOfWidth - 1);
+        int maxY = bacteriaWidth * (countOfWidth - 1);
         int newX = 0;
         int newY = 0;
 
@@ -78,7 +78,7 @@ public class BacteriaEntity extends Entity {
 
         if (direction.equals("left")){
             newX = oldX;
-            newY = oldY - bacteriaWeight;
+            newY = oldY - bacteriaWidth;
 
             if (newY < 0){
                 newY = oldY;
@@ -87,7 +87,7 @@ public class BacteriaEntity extends Entity {
 
         if (direction.equals("right")){
             newX = oldX;
-            newY = oldY + bacteriaWeight;
+            newY = oldY + bacteriaWidth;
             if (newY > maxY){
                 newY = oldY;
             }

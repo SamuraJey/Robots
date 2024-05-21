@@ -12,12 +12,12 @@ public class BacteriaRenderer extends AbstractRenderer {
         BacteriaEntity bacteria = (BacteriaEntity) entity;
         int bacteriaX = GraphicsUtils.round(bacteria.getBacteriaPosition().x);
         int bacteriaY = GraphicsUtils.round(bacteria.getBacteriaPosition().y);
-        int bacteriaWeight = bacteria.getBacteriaWeight();
+        int bacteriaWidth = bacteria.getBacteriaWidth();
         int bacteriaHeight = bacteria.getBacteriaHeight();
         //AffineTransform t = AffineTransform.getRotateInstance(bacteria.getBacteriaDirection(), robotCenterX, robotCenterY);
         //g.setTransform(t);
         g.setColor(Color.BLUE);
-        GraphicsUtils.fillRect(g, bacteriaX, bacteriaY, bacteriaHeight, bacteriaWeight);
+        GraphicsUtils.fillRect(g, bacteriaX, bacteriaY, bacteriaHeight, bacteriaWidth);
 
 
     }

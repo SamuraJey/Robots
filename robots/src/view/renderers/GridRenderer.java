@@ -15,10 +15,10 @@ public class GridRenderer extends AbstractRenderer{
         int heightOfScreen = grid.getHeightOfScreen();
         int widthOfScreen = grid.getWidthOfScreen();
 
-        for (int i = 0; i <= grid.getCountWidth(); i++) { // вертикальные линии
+        for (int i = 0; i <= grid.getCountWidth(); i++) {
             g.drawLine(0,cellWidth*i,heightOfScreen,cellWidth*i);
         }
-        for (int i = 0; i <= grid.getCountHeight(); i++) { // горизонтальные линии
+        for (int i = 0; i <= grid.getCountHeight(); i++) {
             g.drawLine(cellHeigth*i, 0,cellHeigth*i,widthOfScreen);
         }
     }
