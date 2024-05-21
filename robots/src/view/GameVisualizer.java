@@ -1,26 +1,25 @@
 package view;
 
+import model.ModelDataProvider;
 import model.entities.*;
 import view.renderers.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 public class GameVisualizer extends JPanel {
 
-    private List<Entity> entitiesToRender;
+    private ModelDataProvider modelDataProvider;
     private final Map<Class<? extends Entity>, AbstractRenderer> rendererMap = Map.of(
             BacteriaEntity.class, new BacteriaRenderer(),
             GridEntity.class, new GridRenderer(),
             FoodEntity.class, new FoodRenderer()
     );
 
-    public  void setEntitiesToRender(List<Entity> entitiesToRender){
-        this.entitiesToRender = entitiesToRender;
+    public  void setModelDataProvider(ModelDataProvider modelDataProvider){
+        this.modelDataProvider = modelDataProvider;
     }
     public GameVisualizer() {
         setDoubleBuffered(true);
@@ -33,7 +32,7 @@ public class GameVisualizer extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        for (Entity entity : entitiesToRender) {
+        for (Entity entity : modelDataProvider.getEntities()) {
             rendererMap.get(entity.getClass()).render((Graphics2D) g, entity);
         }
     }

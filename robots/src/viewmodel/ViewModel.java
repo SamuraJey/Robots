@@ -3,14 +3,8 @@ package viewmodel;
 import model.Model;
 import view.GameVisualizer;
 
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.geom.Point2D;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
 
 public class ViewModel {
     private final Timer timer = new Timer("events generator", true);
@@ -22,7 +16,7 @@ public class ViewModel {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                gameVisualizer.setEntitiesToRender(model.entitiesRegistry.getEntities());
+                gameVisualizer.setModelDataProvider(model);
                 gameVisualizer.onRedrawEvent();
             }
         }, 0, redrawPeriod);

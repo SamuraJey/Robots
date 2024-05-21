@@ -2,7 +2,9 @@ package model;
 
 import model.entities.*;
 
-public class Model {
+import java.util.List;
+
+public class Model implements ModelDataProvider {
     public final DefaultEntitiesRegistry entitiesRegistry;
     private final int widthOfScreen;
     private final int heightOfScreen;
@@ -32,5 +34,10 @@ public class Model {
             entity.update(period);
         }
         entitiesRegistry.delete();
+    }
+
+    @Override
+    public List<Entity> getEntities() {
+        return entitiesRegistry.getEntities();
     }
 }
