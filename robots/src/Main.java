@@ -18,7 +18,7 @@ public class Main
       SwingUtilities.invokeLater(() -> {
 
         GameVisualizer gameVisualizer = new GameVisualizer();
-        Model model = new Model();
+        Model model = new Model(400,400); //TODO
         ViewModel viewModel = new ViewModel(model, gameVisualizer);
 
         MainApplicationFrame frame = new MainApplicationFrame(gameVisualizer);

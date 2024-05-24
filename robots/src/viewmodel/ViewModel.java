@@ -8,7 +8,6 @@ import java.util.TimerTask;
 
 public class ViewModel {
     private final Timer timer = new Timer("events generator", true);
-
     private final int redrawPeriod = 50;
     private final int modelUpdatePeriod = 10;
 

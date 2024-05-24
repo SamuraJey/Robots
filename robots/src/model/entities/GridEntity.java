@@ -1,6 +1,10 @@
 package model.entities;
 
-public final class GridEntity extends Entity {
+import model.WorldContext;
+
+import java.awt.geom.Point2D;
+
+public final class GridEntity extends Entity  { //
     private final int cellCountWidth;
     private final int cellCountHeight;
     private final int widthOfScreen;
@@ -8,13 +12,13 @@ public final class GridEntity extends Entity {
     private final int cellWidth;
     private final int cellHeight;
 
-    public GridEntity(int cellCountWidth, int cellCountHeight, int widthOfScreen, int heightOfScreen) {
+    public GridEntity(int cellCountWidth, int cellCountHeight, int widthOfScreen, int heightOfScreen, int cellWidth, int cellHeight) {
         this.cellCountWidth = cellCountWidth;
         this.cellCountHeight = cellCountHeight;
         this.widthOfScreen = widthOfScreen;
         this.heightOfScreen = heightOfScreen;
-        cellWidth = widthOfScreen / cellCountWidth;
-        cellHeight = heightOfScreen / cellCountHeight;
+        this.cellHeight = cellHeight;
+        this.cellWidth = cellWidth;
     }
 
     public int getCountWidth(){ return cellCountWidth; }
@@ -26,7 +30,8 @@ public final class GridEntity extends Entity {
     public int getCellHeight(){ return cellHeight; }
 
     @Override
-    public void update(int period) {
+    public void update(WorldContext worldContext) {
 
     }
+
 }

@@ -1,6 +1,7 @@
 package model.entities;
 
 import model.MathUtils;
+import model.WorldContext;
 
 import java.awt.geom.Point2D;
 import java.util.Random;
@@ -11,22 +12,22 @@ public class FoodEntity extends Entity{
     private final int foodWidth;
     private final int countOfWidth;
     private final int countOfHeight;
-    public FoodEntity(int weight, int height, int countOfWidth, int countOfHeight) {
-        foodWidth = weight;
+    public FoodEntity(int width, int height, int countOfWidth, int countOfHeight) {
+        foodWidth = width;
         foodHeight = height;
         this.countOfWidth = countOfWidth;
         this.countOfHeight = countOfHeight;
-        foodPosition = getPosition();
+        foodPosition = getFoodPosition();
     }
-
-    public Point2D.Double getFoodPosition() {
+    @Override
+    public Point2D.Double getPosition() {
         return foodPosition;
     }
 
     public int getFoodHeight(){ return  foodHeight; }
     public int getFoodWidth(){ return  foodWidth; }
 
-    private Point2D.Double getPosition(){
+    private Point2D.Double getFoodPosition(){
         int randomWidth = MathUtils.getRandomNumber(countOfWidth);
         int randomHeight = MathUtils.getRandomNumber(countOfHeight);
         double foodX = foodHeight * randomHeight;
@@ -34,7 +35,7 @@ public class FoodEntity extends Entity{
         return new Point2D.Double(foodX,foodY);
     }
     @Override
-    public void update(int period) {
+    public void update(WorldContext worldContext) {
 
     }
 }

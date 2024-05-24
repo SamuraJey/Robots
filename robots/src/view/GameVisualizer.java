@@ -21,6 +21,7 @@ public class GameVisualizer extends JPanel {
     public  void setModelDataProvider(ModelDataProvider modelDataProvider){
         this.modelDataProvider = modelDataProvider;
     }
+
     public GameVisualizer() {
         setDoubleBuffered(true);
     }

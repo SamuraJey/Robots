@@ -10,8 +10,8 @@ public class FoodRenderer extends AbstractRenderer{
     @Override
     public void render(Graphics2D g, Entity entity) {
         FoodEntity food = (FoodEntity) entity;
-        int foodX = GraphicsUtils.round(food.getFoodPosition().x);
-        int foodY = GraphicsUtils.round(food.getFoodPosition().y);
+        int foodX = GraphicsUtils.round(food.getPosition().x);
+        int foodY = GraphicsUtils.round(food.getPosition().y);
         int foodWidth = food.getFoodWidth();
         int foodHeight = food.getFoodHeight();
         Color color = Color.GREEN;

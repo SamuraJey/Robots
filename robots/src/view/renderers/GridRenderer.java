@@ -11,7 +11,7 @@ public class GridRenderer extends AbstractRenderer{
         g.setColor(Color.GRAY);
         GridEntity grid = (GridEntity) entity;
         int cellWidth = grid.getCellWidth();
-        int cellHeigth = grid.getCellHeight();
+        int cellHeight = grid.getCellHeight();
         int heightOfScreen = grid.getHeightOfScreen();
         int widthOfScreen = grid.getWidthOfScreen();
 
@@ -19,7 +19,7 @@ public class GridRenderer extends AbstractRenderer{
             g.drawLine(0,cellWidth*i,heightOfScreen,cellWidth*i);
         }
         for (int i = 0; i <= grid.getCountHeight(); i++) {
-            g.drawLine(cellHeigth*i, 0,cellHeigth*i,widthOfScreen);
+            g.drawLine(cellHeight*i, 0,cellHeight*i,widthOfScreen);
         }
     }
 

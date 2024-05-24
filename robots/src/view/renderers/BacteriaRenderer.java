@@ -10,8 +10,8 @@ public class BacteriaRenderer extends AbstractRenderer {
     @Override
     public void render(Graphics2D g, Entity entity) {
         BacteriaEntity bacteria = (BacteriaEntity) entity;
-        int bacteriaX = GraphicsUtils.round(bacteria.getBacteriaPosition().x);
-        int bacteriaY = GraphicsUtils.round(bacteria.getBacteriaPosition().y);
+        int bacteriaX = GraphicsUtils.round(bacteria.getPosition().x);
+        int bacteriaY = GraphicsUtils.round(bacteria.getPosition().y);
         int bacteriaWidth = bacteria.getBacteriaWidth();
         int bacteriaHeight = bacteria.getBacteriaHeight();
         //AffineTransform t = AffineTransform.getRotateInstance(bacteria.getBacteriaDirection(), robotCenterX, robotCenterY);

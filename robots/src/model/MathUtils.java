@@ -37,8 +37,7 @@ public class MathUtils {
 
     public static int getRandomNumber(int range){
         Random rn = new Random();
-        int randomNum = rn.nextInt(range);
-        return randomNum;
+        return rn.nextInt(range);
     }
 
 }
