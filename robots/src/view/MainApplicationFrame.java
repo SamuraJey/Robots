@@ -15,19 +15,26 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import log.LogWindow;
 import log.Logger;
+import viewmodel.ViewModel;
 
-public class MainApplicationFrame extends JFrame {
+public class MainApplicationFrame extends JFrame implements PauseStateListener{
     private final JDesktopPane desktopPane = new JDesktopPane();
+    
 
     public final static int WIDTH = 600;
     public final static int HEIGHT = 600;
+    private ViewModel viewModel;
+    private JMenuItem pauseMenuItem;
 
-    public MainApplicationFrame(GameVisualizer gameVisualizer) {
+    public MainApplicationFrame(GameVisualizer gameVisualizer, ViewModel viewModel) {
+        this.viewModel = viewModel;
+        this.viewModel.addPauseStateListener(this);
         int inset = 50;
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setBounds(inset, inset, screenSize.width - inset * 2, screenSize.height - inset * 2);
 
         setContentPane(desktopPane);
+        pauseMenuItem = createPauseMenuItem();
 
         LogWindow logWindow = createLogWindow();
         addWindow(logWindow);
@@ -59,6 +66,7 @@ public class MainApplicationFrame extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(createLookAndFeelMenu());
         menuBar.add(createTestMenu());
+        menuBar.add(pauseMenuItem);
         return menuBar;
     }
 
@@ -109,4 +117,23 @@ public class MainApplicationFrame extends JFrame {
             // just ignore
         }
     }
+
+    private JMenuItem createPauseMenuItem() {
+        JMenuItem pauseMenuItem = new JMenuItem("Pause");
+        pauseMenuItem.addActionListener((event) -> {
+            boolean isPaused = !viewModel.getIsPaused(); // Get the current paused state and invert it
+            viewModel.setPaused(isPaused); // Set the new paused state
+            Logger.debug(isPaused ? "Пауза" : "Продолжить"); // Log the new state
+        });
+        return pauseMenuItem;
+    }
+
+    @Override
+    public void onPauseStateChanged(boolean isPaused) {
+        SwingUtilities.invokeLater(() -> {
+            pauseMenuItem.setText(isPaused ? "Resume" : "Pause");
+        });
+    }
+
+    
 }
