@@ -19,7 +19,8 @@ public class Main
         
         GameVisualizer gameVisualizer = new GameVisualizer();
         MainApplicationFrame frame = new MainApplicationFrame(gameVisualizer);
-        Model model = new Model(frame.WIDTH,frame.HEIGHT); //TODO
+        Model model = new Model(MainApplicationFrame.WIDTH, MainApplicationFrame.HEIGHT);
+        @SuppressWarnings("unused")
         ViewModel viewModel = new ViewModel(model, gameVisualizer);
 
         

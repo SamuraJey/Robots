@@ -2,9 +2,7 @@ package model.entities;
 
 import model.WorldContext;
 
-import java.awt.geom.Point2D;
-
-public final class GridEntity extends Entity  { //
+public final class GridEntity extends Entity  {
     private final int cellCountWidth;
     private final int cellCountHeight;
     private final int widthOfScreen;

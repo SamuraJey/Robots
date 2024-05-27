@@ -41,11 +41,10 @@ public class WorldContext {
 
     public <T extends Entity> List<T> findEntities(Class<T> entityType)
     {
-        // TODO
         List<T> entities = new ArrayList<>();
         for (Entity entity : model.getEntities()) {
-            if (entity.getClass() == entityType) {
-                entities.add((T) entity); // так и должно быть? Это выглядит странно
+            if (entityType.isInstance(entity)) {
+                entities.add(entityType.cast(entity));
             }
         }
         return entities;
