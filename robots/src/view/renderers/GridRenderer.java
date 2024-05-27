@@ -8,7 +8,7 @@ import java.awt.*;
 public class GridRenderer extends AbstractRenderer {
     @Override
     public void render(Graphics2D g, Entity entity) {
-        g.setColor(Color.GRAY);
+        g.setColor(Color.BLACK);
         GridEntity grid = (GridEntity) entity;
         int cellWidth = grid.getCellWidth();
         int cellHeight = grid.getCellHeight();

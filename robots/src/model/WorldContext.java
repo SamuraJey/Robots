@@ -78,8 +78,8 @@ public class WorldContext {
 
     private Entity getEntityOfPosition(Point2D.Double position) {
         for (Entity entity : model.getEntities()) {
-            if (entity.getPosition() != null && position.y == entity.getPosition().y && position.x == entity.getPosition().x) {
-                return entity; // TODO problem with grid
+            if (position.y == entity.getPosition().y && position.x == entity.getPosition().x) {
+                return entity;
             }
         }
         return null;

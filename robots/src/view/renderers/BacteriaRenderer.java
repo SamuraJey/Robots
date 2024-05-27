@@ -18,7 +18,7 @@ public class BacteriaRenderer extends AbstractRenderer {
         //g.setTransform(t);
         g.setColor(Color.BLUE);
         GraphicsUtils.fillRect(g, bacteriaX, bacteriaY, bacteriaHeight, bacteriaWidth);
-
-
+        g.setColor(Color.BLACK);
+        GraphicsUtils.drawRect(g,bacteriaX,bacteriaY,bacteriaHeight,bacteriaWidth);
     }
 }

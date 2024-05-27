@@ -7,29 +7,27 @@ import java.util.List;
 
 public class Model implements ModelDataProvider {
     public final DefaultEntitiesRegistry entitiesRegistry;
-    private final int widthOfScreen;
-    private final int heightOfScreen;
     private final int cellCountWidth;
     private final int cellCountHeight;
     private final int cellWidth;
     private final int cellHeight;
     private final WorldContext worldContext;
+    private final GridEntity grid;
 
     public Model(int widthOfScreen, int heightOfScreen) {
         entitiesRegistry = new DefaultEntitiesRegistry();
-        this.widthOfScreen = widthOfScreen;
-        this.heightOfScreen = heightOfScreen;
         cellCountWidth = 10;
         cellCountHeight = 10;
         cellWidth = widthOfScreen / cellCountWidth;
         cellHeight = heightOfScreen / cellCountHeight;
         worldContext = new WorldContext(this);
+        this.grid = new GridEntity(cellCountWidth, cellCountHeight, widthOfScreen, heightOfScreen, cellWidth,
+                cellHeight);
         init();
     }
 
     private void init() {
-        GridEntity grid = new GridEntity(cellCountWidth, cellCountHeight, widthOfScreen, heightOfScreen, cellWidth,
-                cellHeight);
+
 
         for (int i = 0; i < 5; i++) {
             FoodEntity food = new FoodEntity(cellWidth, cellHeight,
@@ -45,7 +43,7 @@ public class Model implements ModelDataProvider {
             entitiesRegistry.register(bacteria);
         }
 
-        entitiesRegistry.register(grid);
+        //entitiesRegistry.register(grid);
         // entitiesRegistry.register(food1);
         // entitiesRegistry.register(food2);
     }
@@ -77,8 +75,8 @@ public class Model implements ModelDataProvider {
     public List<Entity> getEntities() {
         return entitiesRegistry.getEntities();
     }
-
+    @Override
     public GridEntity getGrid() {
-        return entitiesRegistry.getGrid();
+        return  grid;//entitiesRegistry.getGrid();
     }
 }
