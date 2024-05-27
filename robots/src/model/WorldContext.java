@@ -36,8 +36,9 @@ public class WorldContext {
         if (entityNearby == null){
             bacteria.setPosition(newPosition);
         }
-
     }
+
+
 
     public <T extends Entity> List<T> findEntities(Class<T> entityType)
     {
@@ -82,5 +83,9 @@ public class WorldContext {
             }
         }
         return null;
+    }
+
+    public Model getModel() {
+        return model;
     }
 }

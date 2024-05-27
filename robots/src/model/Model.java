@@ -27,8 +27,6 @@ public class Model implements ModelDataProvider {
     }
 
     private void init() {
-
-
         for (int i = 0; i < 5; i++) {
             FoodEntity food = new FoodEntity(cellWidth, cellHeight,
                     new Point2D.Double(MathUtils.getRandomNumber(cellCountWidth) * cellWidth,
@@ -43,7 +41,7 @@ public class Model implements ModelDataProvider {
             entitiesRegistry.register(bacteria);
         }
 
-        //entitiesRegistry.register(grid);
+        // entitiesRegistry.register(grid);
         // entitiesRegistry.register(food1);
         // entitiesRegistry.register(food2);
     }
@@ -75,8 +73,9 @@ public class Model implements ModelDataProvider {
     public List<Entity> getEntities() {
         return entitiesRegistry.getEntities();
     }
+
     @Override
     public GridEntity getGrid() {
-        return  grid;//entitiesRegistry.getGrid();
+        return grid;// entitiesRegistry.getGrid();
     }
 }
