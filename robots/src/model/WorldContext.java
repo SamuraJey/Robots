@@ -3,6 +3,7 @@ package model;
 import model.entities.BacteriaEntity;
 import model.entities.Entity;
 import model.entities.FoodEntity;
+import model.entities.PoisonEntity;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -31,6 +32,11 @@ public class WorldContext {
         if (entityNearby instanceof FoodEntity){
             model.entitiesRegistry.addEntityToDelete(entityNearby);
             bacteria.setPosition(newPosition);
+        }
+
+        if (entityNearby instanceof PoisonEntity){
+            model.entitiesRegistry.addEntityToDelete(bacteria);
+            model.entitiesRegistry.addEntityToDelete(entityNearby);
         }
 
         if (entityNearby == null){
@@ -78,7 +84,7 @@ public class WorldContext {
 
     private Entity getEntityOfPosition(Point2D.Double position) {
         for (Entity entity : model.getEntities()) {
-            if (position.y == entity.getPosition().y && position.x == entity.getPosition().x) {
+            if (position.equals(entity.getPosition())) {
                 return entity;
             }
         }

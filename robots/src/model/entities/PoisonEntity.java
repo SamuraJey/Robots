@@ -31,7 +31,7 @@ public class PoisonEntity extends Entity {
     @Override
     public void update(WorldContext worldContext) {
         // Get all bacteria entities from the world context
-        List<BacteriaEntity> bacteriaEntities = worldContext.findEntities(BacteriaEntity.class);
+        /*List<BacteriaEntity> bacteriaEntities = worldContext.findEntities(BacteriaEntity.class);
 
         // Iterate over all bacteria entities
         for (BacteriaEntity bacteria : bacteriaEntities) {
@@ -40,6 +40,6 @@ public class PoisonEntity extends Entity {
                 // TODO - Как удалить бактерию то?
                 worldContext.getModel().getEntities().remove(bacteria);
             }
-        }
+        }*/
     }
 }

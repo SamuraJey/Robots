@@ -14,6 +14,7 @@ public class GameVisualizer extends JPanel {
     private final Map<Class<? extends Entity>, AbstractRenderer> rendererMap = Map.of(
             BacteriaEntity.class, new BacteriaRenderer(),
             GridEntity.class, new GridRenderer(),
+            PoisonEntity.class, new PoisonRenderer(),
             FoodEntity.class, new FoodRenderer());
 
     public void setModelDataProvider(ModelDataProvider modelDataProvider) {

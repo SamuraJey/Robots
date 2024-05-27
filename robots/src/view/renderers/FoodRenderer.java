@@ -10,8 +10,8 @@ public class FoodRenderer extends AbstractRenderer{
     @Override
     public void render(Graphics2D g, Entity entity) {
         FoodEntity food = (FoodEntity) entity;
-        int foodX = food.getFoodHeight() * GraphicsUtils.round(food.getPosition().x / food.getFoodHeight());
-        int foodY = food.getFoodWidth() * GraphicsUtils.round(food.getPosition().y / food.getFoodWidth());
+        int foodX = GraphicsUtils.round(food.getPosition().x);//food.getFoodHeight() * GraphicsUtils.round(food.getPosition().x / food.getFoodHeight());
+        int foodY = GraphicsUtils.round(food.getPosition().y);//food.getFoodWidth() * GraphicsUtils.round(food.getPosition().y / food.getFoodWidth());
         int foodWidth = food.getFoodWidth();
         int foodHeight = food.getFoodHeight();
         //AffineTransform t = AffineTransform.getRotateInstance(bacteria.getBacteriaDirection(), robotCenterX, robotCenterY);
