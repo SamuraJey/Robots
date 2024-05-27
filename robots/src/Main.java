@@ -16,14 +16,17 @@ public class Main
         e.printStackTrace();
       }
       SwingUtilities.invokeLater(() -> {
-
+        
         GameVisualizer gameVisualizer = new GameVisualizer();
-        Model model = new Model(400,400); //TODO
+        MainApplicationFrame frame = new MainApplicationFrame(gameVisualizer);
+        Model model = new Model(frame.WIDTH,frame.HEIGHT); //TODO
         ViewModel viewModel = new ViewModel(model, gameVisualizer);
 
-        MainApplicationFrame frame = new MainApplicationFrame(gameVisualizer);
+        
         frame.pack();
         frame.setVisible(true);
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);
       });
     }}
+
+

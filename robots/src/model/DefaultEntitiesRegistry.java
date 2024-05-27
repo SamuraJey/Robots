@@ -1,6 +1,7 @@
 package model;
 
 import model.entities.Entity;
+import model.entities.GridEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +27,14 @@ public class DefaultEntitiesRegistry implements EntitiesRegistry {
 
     public void addEntityToDelete(Entity entity){
         deleteEntity.add(entity);
+    }
+
+    public GridEntity getGrid() {
+        for (Entity entity : registeredEntities) {
+            if (entity instanceof GridEntity) {
+                return (GridEntity) entity;
+            }
+        }
+        return null;
     }
 }

@@ -19,6 +19,9 @@ import log.Logger;
 public class MainApplicationFrame extends JFrame {
     private final JDesktopPane desktopPane = new JDesktopPane();
 
+    public final static int WIDTH = 600;
+    public final static int HEIGHT = 600;
+
     public MainApplicationFrame(GameVisualizer gameVisualizer) {
         int inset = 50;
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -30,7 +33,7 @@ public class MainApplicationFrame extends JFrame {
         addWindow(logWindow);
 
         GameWindow gameWindow = new GameWindow(gameVisualizer);
-        gameWindow.setSize(450, 450);
+        gameWindow.setSize(WIDTH + 20, HEIGHT + 40);
         addWindow(gameWindow);
 
         setJMenuBar(createMenuBar());
@@ -64,8 +67,10 @@ public class MainApplicationFrame extends JFrame {
         lookAndFeelMenu.setMnemonic(KeyEvent.VK_V);
         lookAndFeelMenu.getAccessibleContext().setAccessibleDescription("Управление режимом отображения приложения");
 
-        lookAndFeelMenu.add(createLookAndFeelMenuItem("Системная схема", KeyEvent.VK_S, UIManager.getSystemLookAndFeelClassName()));
-        lookAndFeelMenu.add(createLookAndFeelMenuItem("Универсальная схема", KeyEvent.VK_U, UIManager.getCrossPlatformLookAndFeelClassName()));
+        lookAndFeelMenu.add(
+                createLookAndFeelMenuItem("Системная схема", KeyEvent.VK_S, UIManager.getSystemLookAndFeelClassName()));
+        lookAndFeelMenu.add(createLookAndFeelMenuItem("Универсальная схема", KeyEvent.VK_U,
+                UIManager.getCrossPlatformLookAndFeelClassName()));
 
         return lookAndFeelMenu;
     }
@@ -100,7 +105,7 @@ public class MainApplicationFrame extends JFrame {
             UIManager.setLookAndFeel(className);
             SwingUtilities.updateComponentTreeUI(this);
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-                 | UnsupportedLookAndFeelException e) {
+                | UnsupportedLookAndFeelException e) {
             // just ignore
         }
     }

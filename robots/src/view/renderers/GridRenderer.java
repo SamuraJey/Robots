@@ -5,7 +5,7 @@ import model.entities.GridEntity;
 
 import java.awt.*;
 
-public class GridRenderer extends AbstractRenderer{
+public class GridRenderer extends AbstractRenderer {
     @Override
     public void render(Graphics2D g, Entity entity) {
         g.setColor(Color.GRAY);
@@ -16,10 +16,10 @@ public class GridRenderer extends AbstractRenderer{
         int widthOfScreen = grid.getWidthOfScreen();
 
         for (int i = 0; i <= grid.getCountWidth(); i++) {
-            g.drawLine(0,cellWidth*i,heightOfScreen,cellWidth*i);
+            g.drawLine(0, cellWidth * i, heightOfScreen, cellWidth * i);
         }
         for (int i = 0; i <= grid.getCountHeight(); i++) {
-            g.drawLine(cellHeight*i, 0,cellHeight*i,widthOfScreen);
+            g.drawLine(cellHeight * i, 0, cellHeight * i, widthOfScreen);
         }
     }
 
