@@ -41,6 +41,16 @@ public class Model implements ModelDataProvider {
             entitiesRegistry.register(bacteria);
         }
 
+        for (int i = 0; i < 6; i++) {
+            PoisonEntity poison = new PoisonEntity(cellWidth, cellHeight,
+            new Point2D.Double(MathUtils.getRandomNumber(cellCountWidth) * cellWidth,
+            MathUtils.getRandomNumber(cellCountHeight) * cellHeight));
+            entitiesRegistry.register(poison);
+        }
+        // PoisonEntity poison = new PoisonEntity(cellWidth, cellHeight,
+        //         new Point2D.Double(1 * cellWidth,
+        //                 1 * cellHeight));
+        // entitiesRegistry.register(poison);
         // entitiesRegistry.register(grid);
         // entitiesRegistry.register(food1);
         // entitiesRegistry.register(food2);

@@ -8,8 +8,8 @@ import java.util.TimerTask;
 
 public class ViewModel {
     private final Timer timer = new Timer("events generator", true);
-    private final int redrawPeriod = 500;
-    private final int modelUpdatePeriod = 500;
+    private final int redrawPeriod = 100;
+    private final int modelUpdatePeriod = 100;
 
     public ViewModel(Model model, GameVisualizer gameVisualizer) {
         timer.schedule(new TimerTask() {
