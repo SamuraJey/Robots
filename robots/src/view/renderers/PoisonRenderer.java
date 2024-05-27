@@ -1,7 +1,6 @@
 package view.renderers;
 
 import model.entities.Entity;
-import model.entities.FoodEntity;
 import model.entities.PoisonEntity;
 import view.GraphicsUtils;
 

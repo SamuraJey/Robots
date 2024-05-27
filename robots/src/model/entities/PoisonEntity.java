@@ -2,7 +2,6 @@ package model.entities;
 
 import model.WorldContext;
 import java.awt.geom.Point2D;
-import java.util.List;
 
 public class PoisonEntity extends Entity {
     private final Point2D.Double poisonPosition;
@@ -30,16 +29,5 @@ public class PoisonEntity extends Entity {
 
     @Override
     public void update(WorldContext worldContext) {
-        // Get all bacteria entities from the world context
-        /*List<BacteriaEntity> bacteriaEntities = worldContext.findEntities(BacteriaEntity.class);
-
-        // Iterate over all bacteria entities
-        for (BacteriaEntity bacteria : bacteriaEntities) {
-            // Check if the bacteria's position is the same as the poison's position
-            if (bacteria.getPosition().equals(this.getPosition())) {
-                // TODO - Как удалить бактерию то?
-                worldContext.getModel().getEntities().remove(bacteria);
-            }
-        }*/
     }
 }

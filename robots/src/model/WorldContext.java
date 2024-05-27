@@ -11,12 +11,12 @@ import java.util.List;
 
 public class WorldContext {
     private final Model model;
+
     public WorldContext(Model model) {
         this.model = model;
     }
 
-    public void moveBacteria(BacteriaEntity bacteria, Direction direction)
-    {
+    public void moveBacteria(BacteriaEntity bacteria, Direction direction) {
         Point2D.Double oldPosition = bacteria.getPosition();
         Point2D.Double newPosition = new Point2D.Double();
         newPosition.x = oldPosition.x + direction.getxOffset() * model.getCellWidth();
@@ -24,30 +24,27 @@ public class WorldContext {
         int maxX = model.getCellWidth() * (model.getCellCountWidth() - 1);
         int maxY = model.getCellHeight() * (model.getCellCountHeight() - 1);
 
-        if (newPosition.x < 0 || newPosition.x > maxX || newPosition.y < 0 || newPosition.y > maxY){
+        if (newPosition.x < 0 || newPosition.x > maxX || newPosition.y < 0 || newPosition.y > maxY) {
             return;
         }
         Entity entityNearby = getEntityOfPosition(newPosition);
 
-        if (entityNearby instanceof FoodEntity){
+        if (entityNearby instanceof FoodEntity) {
             model.entitiesRegistry.addEntityToDelete(entityNearby);
             bacteria.setPosition(newPosition);
         }
 
-        if (entityNearby instanceof PoisonEntity){
+        if (entityNearby instanceof PoisonEntity) {
             model.entitiesRegistry.addEntityToDelete(bacteria);
             model.entitiesRegistry.addEntityToDelete(entityNearby);
         }
 
-        if (entityNearby == null){
+        if (entityNearby == null) {
             bacteria.setPosition(newPosition);
         }
     }
 
-
-
-    public <T extends Entity> List<T> findEntities(Class<T> entityType)
-    {
+    public <T extends Entity> List<T> findEntities(Class<T> entityType) {
         List<T> entities = new ArrayList<>();
         for (Entity entity : model.getEntities()) {
             if (entityType.isInstance(entity)) {
@@ -57,12 +54,11 @@ public class WorldContext {
         return entities;
     }
 
-    public enum Direction
-    {
-        UP(1,0 ),
-        DOWN(-1,0 ),
-        LEFT(0,-1 ),
-        RIGHT(0,1 );
+    public enum Direction {
+        UP(1, 0),
+        DOWN(-1, 0),
+        LEFT(0, -1),
+        RIGHT(0, 1);
 
         private final int xOffset;
         private final int yOffset;
